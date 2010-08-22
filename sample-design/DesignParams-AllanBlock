@@ -1,0 +1,100 @@
+# -*-python-*-
+#
+
+from math import *
+from units import Units, Degrees
+
+params = {
+  # Design paramaters
+  ###########################################################################
+  
+   # total height of wall including buried portion
+  'H'      : Units('9.525 ft', ndigits=2),
+  
+  # depth of wall embedment (buried blocks + footing thickness)
+  'D'      : Units('2.0 ft', ndigits=2),
+
+  # width of foundation (minimum: 2.0 ft)
+  'B_b'    : Units('2.0 ft', ndigits=2),
+
+  # thickness of foundation  (minimum: 0.5 ft)
+  'd_b'    : Units('0.5 ft', ndigits=2),
+
+  # length of geogrid
+  'L_g'    : Units('6.0 ft', ndigits=2),
+
+  # surcharge pressure at top of wall
+  'q'      : Units('250 lb/ft^2', ndigits=0),
+
+  # A geogrid goes above these block levels from the bottom
+  'geogrid_levels' : [1, 3, 5, 7, 9, 11, 13],
+
+  # Desired FOS (factor of safety) for various modes of failure
+  'FOS_sliding'     : 1.5,  # failure by sliding
+  'FOS_overturning' : 2.0,  # failure by overturning
+  'FOS_ICS'         : 1.3,  # internal compound stability failure
+  'FOS_global'      : 1.3,  # global stability failure
+  'FOS_bearing'     : 1.8,  # bearing pressure failure
+  'FOS_ultimate'    : 2.0,  # ultimate bearing capacity failure
+  'FOS_rupture'     : 1.5,  # grid rupture failure
+  'FOS_pullout'     : 1.5,  # grid pullout failure
+  
+  
+  # Materials parameters
+  ###########################################################################
+
+  # Depth, length, and height of a single segmental block
+  'block_depth'  : Units('0.97 ft', ndigits=2),
+  'block_length' : Units('1.5 ft', ndigits=2),
+  'block_height' : Units('0.635 ft', ndigits=2),
+
+  # distance from end of geogrid to front of block
+  'L_s'          : Units('0.13 ft', ndigits=2),
+
+  # unit weight of wall
+  'gamma_wall'   : Units('130 lb / ft^3', ndigits=0),
+
+  # Parameter for strength of geogrid -- see Allan Block design manual,
+  # middle of page 29
+  'geogrid_X'    : Units('1313 lb / ft', ndigits=0),
+  # Parameter for strength of geogrid.  Unitless.
+  'geogrid_Y'    : tan(Degrees(8.0)),
+
+  # Coefficient for interaction between soil and geogrid.  (Allan Block design
+  # manual, p 32).  Soil between sand and clay has a value of 0.8.
+  'C_i' : 0.8,
+
+  # max long term load on geogrid
+  'LTADS'        : Units('1322 lb / ft', ndigits=0),
+    
+  # Environment parameters
+  ###########################################################################
+
+  # Friction angles for retained and infill soils.  Value for foundation soil
+  # is assumed equal to retained soil.
+  'phi_r'  : Degrees(27.0),
+  'phi_i'  : Degrees(30.0),
+
+  # Unit weight of retained and infill soils.  Value for foundation soil
+  # is assumed equal to retained soil.
+  'gamma_r'  : Units('120.0 lb / ft^3', ndigits=0),
+  'gamma_i'  : Units('125.0 lb / ft^3', ndigits=0),
+
+  # Soil cohesion values for retained, infill, and foundation soils.  Since
+  # they are difficult to measure, we assume no soil cohesion and make
+  # conservative calculations.
+  'cohesion_r' : Units('0 lb / ft^2', ndigits=0),
+  'cohesion_i' : Units('0 lb / ft^2', ndigits=0),
+  'cohesion_f' : Units('0 lb / ft^2', ndigits=0),
+
+  # Angle between retaining wall and level ground.  (Or, equivalently,
+  # 90 degrees minus the battering angle (wall setback angle).)
+  'beta'   : Degrees(78.0),
+
+  # Soil slope at the top of the wall
+  'i'      : Degrees(0.0),
+
+  # allowed bearing pressure on undisturbed soil
+  'sigma_allowed' : Units('2500 lb / ft^2', ndigits=0),    
+  
+  }

@@ -1,0 +1,104 @@
+# -*-python-*-
+# This file contains the fixed text (no calculations) which will appear in
+# certain sections of the engineering plans.  It is a regular Python file
+# which will be exec'd in the course of running the plan generator.
+#
+# This file should assign the following values:
+#   LATEX_HEADER
+#   LATEX_HEADER_VARS
+#   LATEX_FOOTER
+#   LATEX_FOOTER_VARS
+
+import time
+
+#=============================================================================
+# These variables make it easier to generate the header
+OWNER = "Harry Homeowner"
+PREPARER = OWNER
+PE_NAME = "Sybil the Civ-E, P.E."
+#=============================================================================
+
+
+LATEX_HEADER = r"""\documentclass{article}
+\usepackage{amsfonts}
+\usepackage[usenames]{color}
+\pagestyle{plain}
+\footskip 10mm
+\hoffset -1.0in
+\voffset -1.3in
+\textwidth 16cm
+\textheight 25cm
+\begin{document}
+
+%%============================================================================
+%% NOTE: This text will be Python string-interpolated, so any LaTeX comments,
+%% which are normally designated with a percent sign, must instead start with
+%% a DOUBLE percent sign.
+%%============================================================================
+
+%%============================================================================
+%% You may wish to change the title below, since it doesn't identify which
+%% retaining wall you're describing, and your target audience (your civil
+%% engineer, your city's public works department, etc.) probably looks at
+%% many retaining walls.  Consider adding a site name or address to the
+%% title.
+%%============================================================================
+\centerline{\bf \Large Retaining Wall Design Plans}
+\vspace{10mm}
+\hfill \begin{minipage}{9cm}
+           Owner: %(owner)s \\
+           Prepared by: %(preparer)s \\
+           Reviewed by: %(pe_name)s \\
+           Last update: %(today)s \\
+       \end{minipage}
+
+\section{General Description}\mbox{}  %% without mbox, 1st para isn't indented
+
+\vspace{-5mm}
+
+%%============================================================================
+You, the software user, will want to change this content.
+
+In this section, you may wish to generally describe the project.  Points
+worth mentioning may include the length of the wall, the above-ground
+height of the wall, any "surcharge" (additional load) that the wall must
+support (such as a driveway), whether this is new construction vs. a
+replacement of an existing wall, the grade of the site, climate
+considerations, external structural factors, land use, survey or land
+ownership issues, etc..  You know your project and your circumstances far
+better than I can guess them.  Include what you think is relevant.
+
+As a reminder, this software was written by a professional in the software
+industry, NOT by a licensed civil engineer.  It is intended to help you make
+efficient use of a civil engineer's time by allowing you to bring some
+calculations to the engineer, who can review and augment them in a shorter
+time than creating plans from scratch.  Producing engineering plans for
+retaining walls over a certain height (which varies by jurisdiction) REQUIRES
+a licensed civil engineer.  Even if your wall is under the height that
+requires a civil engineer, you might still benefit from the advice of a
+civil engineer if your site or circumstances are tricky.
+%%============================================================================
+"""
+
+LATEX_HEADER_VARS = {
+  'owner'    : OWNER,
+  'preparer' : PREPARER,
+  'pe_name'  : PE_NAME,
+  'today'    : time.strftime('%Y-%m-%d'),
+}
+
+LATEX_FOOTER = r"""
+\section{Final Notes}
+
+%%============================================================================
+This is a good place to note any favorable circumstances that you can't
+legitimately include in your calculations, such as if there are signs
+that your soil is especially stable but you haven't obtained a detailed
+geotechnical analysis.  Other than that, this section can be used for
+a written summary.  Consult your high school English teacher.
+%%============================================================================
+
+\end{document}
+"""
+
+LATEX_FOOTER_VARS = {}

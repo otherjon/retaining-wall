@@ -1,0 +1,20 @@
+# This config file defines three other files to be used by the
+# retaining wall plan generation software.  The following values
+# should be set:
+#   DesignParamsFile - a file containing the values of many design parameters
+#   PlansTextFile - a file containing static text to be included in the
+#      generated plan document
+#   OutputLatexFile - where to write the generated output
+#
+# See the DesignParamsFile and PlansTextFile under the "sample-design"
+# directory (included in this distribution) for explanations of the contents
+# of those files.
+
+DesignParamsFile = "DesignParams-AllanBlock"
+PlansTextFile = "PlansText"
+
+# To run the analysis without generating LaTeX output, uncomment the
+# following line:
+#SaveLatexToFile = False
+
+OutputLatexFile = "wall.tex"
