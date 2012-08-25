@@ -4,6 +4,13 @@
 from math import *
 from units import Units, Degrees
 
+# These design parameters come from an example in the Allan Block Engineering
+# Manual.  See http://www.allanblock.com/Literature/PDF/EngManual.pdf
+#
+# The fact that the resulting output matches the values found in the Allan
+# Block manual is a first pass check for computation errors in the software.
+#
+
 params = {
   # Design paramaters
   ###########################################################################
@@ -97,4 +104,4 @@ params = {
   # allowed bearing pressure on undisturbed soil
   'sigma_allowed' : Units('2500 lb / ft^2', ndigits=0),    
   
-  }
+}

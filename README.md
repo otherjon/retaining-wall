@@ -87,3 +87,24 @@ assumptions you've made.
 That just leaves the problem of enumerating all the different ways that
 the wall can fail, and calculating all those forces and moments.  And
 that's where I hope my software can help you.
+
+Getting started with the software
+---------------------------------
+
+When you install this repo, you'll have a directory called `sample-design`
+available.  Try out the plan generator on that:
+    ./Wall.py sample-design/config
+
+That generates a LaTeX file, and it suggests a command to turn the result
+into a PDF.  If you look at the resulting PDF, you'll see a lot of content
+that you might want to change.  Take another look at the `sample-design`
+directory.  It contains three files:
+ * `config`, which just names the two other input parameter files and an
+    output file
+ * `PlansText`, which contains the static text included in the output (such
+    as the project name and description)
+ * `DesignParams-*`, which contains all the design parameters along with
+    explanations of their meanings
+
+Your next step is likely to be to copy the `sample-design` directory and
+edit the files to start designing your own wall.  Good luck!

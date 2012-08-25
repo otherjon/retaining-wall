@@ -1388,7 +1388,7 @@ variables:
    OutputLatexFile
 See the "sample-design" directory, included with this distribution, for
 details on syntax and individual parameters within those files.
-"""
+""" % sys.argv[1]
 
 
 def ParseCommandLine():
