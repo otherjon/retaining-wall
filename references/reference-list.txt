@@ -1,0 +1,10 @@
+The following references were used in the creation of this software:
+
+Allan Block Engineering Manual
+  http://www.allanblock.com/Literature/PDF/EngManual.pdf
+  *** If you are running this software, you should download and read this
+      reference! ***
+
+"Bearing Capacity of Strip Footings Near Slopes", Francesco Castelli and
+  Ernesto Motta, Geotech Geol Eng (2010) 28:187–198
+
